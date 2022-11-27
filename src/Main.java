@@ -37,12 +37,12 @@ public class Main {
         return route.toString();
     }
     public static void print(Map<Integer, Integer> map){
-        Map.Entry<Integer, Integer> max = map.entrySet().stream()
+        Map.Entry<Integer, Integer> maxE = map.entrySet().stream()
                 .max(Comparator.comparing(Map.Entry::getValue))
                 .orElse(null);
-        System.out.println("Самое частое количество повторений " + max.getKey() + " (встретилось " + max.getValue() + " раз)");
+        System.out.println("Самое частое количество повторений " + maxE.getKey() + " (встретилось " + maxE.getValue() + " раз)");
         System.out.println("Другие размеры: ");
-        map.remove(max.getKey());
+        map.remove(maxE.getKey());
         for(Map.Entry<Integer, Integer> entry : map.entrySet()){
             System.out.println("- "  + entry.getKey() + " (" + entry.getValue() + " раз)");
         }
